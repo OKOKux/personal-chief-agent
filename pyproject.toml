@@ -1,0 +1,32 @@
+[project]
+name = "aoeuy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "OKOK", email = "1019685174@qq.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.156.8",
+    "langchain>=1.4.4",
+    "langchain-deepseek>=1.1.1",
+    "langchain-tavily>=0.2.18",
+    "langgraph-checkpoint-sqlite>=3.1.2",
+    "openai>=3.26.1",
+    "python-dotenv>=1.2.4",
+]
+
+# 只给本地开发/学习用，不参与运行时
+[dependency-groups]
+dev = [
+    "langgraph-cli[inmem]>=0.4.33",
+]
+
+# 这个项目不当包安装（入口是 app.main:app），uv 只负责装依赖
+[tool.uv]
+package = false
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
